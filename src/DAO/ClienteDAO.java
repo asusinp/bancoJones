@@ -20,7 +20,8 @@ public class ClienteDAO {
 		PreparedStatement stmt = null;
 		
 		try {
-			stmt = con.prepareStatement("SELECT * FROM clientes WHERE contraseña=" + pass + "\"" + "and dni=\"" + user + "\"");
+			System.out.println("SELECT * FROM clientes WHERE contraseña=md5('" + pass + "')" + " and dni='" + user + "'");
+			stmt = con.prepareStatement("SELECT * FROM clientes WHERE contraseña=md5('" + pass + "')" + " and dni='" + user + "'");			
 			rs = (ResultSet) stmt.executeQuery();
 			if (rs.next()) {
 				c.setNombre(rs.getString("nombre"));

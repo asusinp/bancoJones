@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -38,13 +39,12 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String dni = request.getParameter("dni");
-		String pass = request.getParameter("pass");		
-		Cliente c = ClienteDAO().loginValid(dni, pass);
+		String pass = request.getParameter("pass");
+		Cliente c = ClienteDAO.loginValid(dni, pass);
 		if (c.isValid()) {
-			request.getRequestDispatcherType("loginok.jsp").include(request,response);
+			request.getRequestDispatcher("loginok.jsp").include(request,response);
 		} else {
-			request.getRequestDispatcherType("loginko.jsp").include(request,response);
+			request.getRequestDispatcher("loginko.jsp").include(request,response);
 		}
 	}
-
 }

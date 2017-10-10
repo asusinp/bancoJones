@@ -13,11 +13,11 @@ import java.util.Properties;
 import bbdd.ConnectionManager;
 import beans.Cliente;
 
-public class ClienteDAO {
+public class RegisterDAO {
 
 	static Connection con = null;
 
-	public static Cliente loginValid(String user, String pass) throws IOException {
+	public static Cliente loginValid(String dni, String pass, String surname, String birthday, char sex, String password, String address, String name, String phone) throws IOException {
 		Cliente c = new Cliente();
 
 		con = ConnectionManager.getConnection();
@@ -32,9 +32,15 @@ public class ClienteDAO {
 				System.out.println("No se encontró el archivo");
 			}			
 			prop.load(input);
-			stmt = con.prepareStatement(prop.getProperty("cliente.login"));
-			stmt.setString(1, pass);
-			stmt.setString(2, user);
+			stmt = con.prepareStatement(prop.getProperty("cliente.register"));
+			stmt.setString(1, dni);
+			stmt.setString(2, name);
+			stmt.setString(3, surname);
+			stmt.setString(4, birthday);
+			stmt.setCharacterStream(5, sex);
+			stmt.setString(6, address);
+			stmt.setString(7, phone);
+			stmt.setString(8, password);
 			rs = (ResultSet) stmt.executeQuery();
 			if (rs.next()) {
 				c.setNombre(rs.getString("nombre"));

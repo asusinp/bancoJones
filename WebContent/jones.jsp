@@ -6,20 +6,24 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style>
-	div {
-		position:relative;
-		margin-top:10px;
-	}
+div {
+	position: relative;
+	margin-top: 10px;
+}
+
+input {
+	margin-top: 5px;
+}
 </style>
 </head>
 <body>
 	<%@ include file="menu.html"%>
 	<div>
 		<form action="LoginServlet" method="POST">
-			DNI: <input type="text" name="dni"><br> 
-			Password: <input type="text" name="pass"><br> <input type="submit" value="Validar">
+			DNI: <input type="text" placeholder="Introduce tu DNI" name="dni"><br> 
+			Password: <input type="text" placeholder="Introduce tu contraseña" name="pass"><br> 
+			<input type="submit" value="Validar">
 		</form>
-	</div>
-	
+	</div>	
 </body>
 </html>

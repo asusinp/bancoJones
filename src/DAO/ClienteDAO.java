@@ -1,9 +1,14 @@
 package DAO;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import java.util.Properties;
 
 import bbdd.ConnectionManager;
 import beans.Cliente;
@@ -12,7 +17,7 @@ public class ClienteDAO {
 
 	static Connection con = null;
 
-	public static Cliente loginValid(String user, String pass) {
+	public static Cliente loginValid(String user, String pass) throws IOException {
 		Cliente c = new Cliente();
 
 		con = ConnectionManager.getConnection();
@@ -20,8 +25,16 @@ public class ClienteDAO {
 		PreparedStatement stmt = null;
 		
 		try {
-			System.out.println("SELECT * FROM clientes WHERE contraseña=md5('" + pass + "')" + " and dni='" + user + "'");
-			stmt = con.prepareStatement("SELECT * FROM clientes WHERE contraseña=md5('" + pass + "')" + " and dni='" + user + "'");			
+//			System.out.println("SELECT * FROM clientes WHERE contraseña=md5('" + pass + "')" + " and dni='" + user + "'");
+			Properties prop = new Properties();
+			InputStream input = ClienteDAO.class.getClassLoader().getResourceAsStream("sql.properties");			
+			if (input == null) {
+				System.out.println("No se encontró el archivo");
+			}			
+			prop.load(input);
+			stmt = con.prepareStatement(prop.getProperty("cliente.login"));
+			stmt.setString(1, pass);
+			stmt.setString(2, user);
 			rs = (ResultSet) stmt.executeQuery();
 			if (rs.next()) {
 				c.setNombre(rs.getString("nombre"));

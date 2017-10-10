@@ -5,21 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<style>
-	div {
-		position:relative;
-		margin-top:10px;
-	}
-</style>
 </head>
 <body>
-	<%@ include file="menu.html"%>
-	<div>
-		<form action="LoginServlet" method="POST">
-			DNI: <input type="text" name="dni"><br> 
-			Password: <input type="text" name="pass"><br> <input type="submit" value="Validar">
-		</form>
-	</div>
-	
+
 </body>
 </html>

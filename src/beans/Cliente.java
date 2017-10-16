@@ -8,7 +8,7 @@ public class Cliente {
 	private String apellidos;
 	private String contraseña;
 	private String fechaNacimiento;
-	private char sexo;
+	private String sexo;
 	private String direccion;
 	private String telefono;
 	
@@ -30,10 +30,10 @@ public class Cliente {
 	public void setFechaNacimiento(String fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
-	public char getSexo() {
+	public String getSexo() {
 		return sexo;
 	}
-	public void setSexo(char sexo) {
+	public void setSexo(String sexo) {
 		this.sexo = sexo;
 	}
 	public String getDireccion() {

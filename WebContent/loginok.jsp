@@ -5,12 +5,21 @@
 Cliente c = null;
 String user = null;
 String dni = null;
+String sessionID = null;
 if (session.getAttribute("clientSession") == null) {
 	response.sendRedirect("jones.jsp");
 } else {
 	c = (Cliente)session.getAttribute("clientSession");
 	user = c.getNombre();
 	dni = c.getDni();
+}
+Cookie[] cookies = request.getCookies();
+if (cookies != null) {
+	for (Cookie cookie : cookies) {
+		if (cookie.getName().equals("JSESSIONID") ) {
+			sessionID = cookie.getValue();
+		}
+	}
 }
 %>
 <h3>hola <%=user %>, con dni <%=dni %></h3>
@@ -23,6 +32,10 @@ if (session.getAttribute("clientSession") == null) {
 <body>
 	
 	ok, eres un grande de la programacion
+	<form method="POST" action="LogoutServlet">
+		<input type="submit" value="cerrrar sesion">
+	</form>
+	
 	
 </body>
 </html>

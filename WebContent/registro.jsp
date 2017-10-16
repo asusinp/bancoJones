@@ -16,12 +16,9 @@
 function hideOrShowPassword(){ 
     checkbox = document.getElementById("checkbox");
     passField = document.getElementById("password");
-    if(checkbox.checked==true)
-    {
+    if(checkbox.checked == true) {
         passField.type = "text";
-    }
-    else
-    {
+    } else {
         passField.type = "password"
     }
 }
@@ -34,8 +31,8 @@ function hideOrShowPassword(){
 			Nombre: <input type="text" placeholder="Introduce tu nombre" name="nameReg"><br>
 			Apellidos: <input type="text" placeholder="Introduce tus apellidos" name="surnameReg"><br>
 			DNI: <input type="text" placeholder="Introduce tu DNI" name="dniReg"><br>
-			Contraseña: <input type="password" id="password" placeholder="Introduce tu contraseña" name="passReg"><br>
-			Mostrar contraseña: <input type="checkbox" id="checkbox" value="Car" onclick="hideOrShowPassword()"><br>
+			Contraseña: <input type="text" id="password" placeholder="Introduce tu contraseña" name="passReg"><br>
+			<!-- Mostrar contraseña:  --><!-- <input type="checkbox" id="checkbox" value="Car" onclick="hideOrShowPassword()"><br> -->
 			Fecha de nacimiento: <input type="text" placeholder="Introduce tu fecha de nacimiento" name="birthdayReg"><br>
 			Sexo: <input type="text" placeholder="h = hombre, m = mujer" name="sexReg"><br> 
 			Dirección: <input type="text" placeholder="Introduce tu dirección" name="addressReg"><br>

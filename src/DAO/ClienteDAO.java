@@ -73,7 +73,8 @@ public class ClienteDAO {
 		return c;
 	}
 	
-	public static Cliente regValid(String dni, String pass, String surname, String birthday, char sex, String password, String address, String name, String phone) throws IOException {
+	//public static Cliente regValid(String dni, String pass, String surname, String birthday, char sex, String password, String address, String name, String phone) throws IOException {
+	public static Cliente regValid(String dni, String surname, String birthday, String sex, String password, String address, String name, String phone) throws IOException {
 		Cliente c = new Cliente();
 
 		con = ConnectionManager.getConnection();
@@ -81,7 +82,6 @@ public class ClienteDAO {
 		PreparedStatement stmt = null;
 		
 		try {
-			//System.out.println("SELECT * FROM clientes WHERE contraseña=md5('" + pass + "')" + " and dni='" + user + "'");
 			Properties prop = new Properties();
 			InputStream input = ClienteDAO.class.getClassLoader().getResourceAsStream("sql.properties");			
 			if (input == null) {
@@ -99,8 +99,14 @@ public class ClienteDAO {
 			stmt.setString(8, password);
 			rs = (ResultSet) stmt.executeQuery();
 			if (rs.next()) {
-				c.setNombre(rs.getString("nombre"));
-				c.setDni(rs.getString("dni"));
+				c.setNombre(rs.getString(name));
+				c.setDni(rs.getString(dni));
+				c.setApellidos(rs.getString(surname));
+				c.setFechaNacimiento(rs.getString(birthday));
+				c.setSexo(rs.getString(sex));
+				c.setDireccion(rs.getString(address));
+				c.setTelefono(rs.getString(phone));
+				c.setContraseña(rs.getString(password));
 				c.setValid(true);
 			} else {
 				c.setValid(false);

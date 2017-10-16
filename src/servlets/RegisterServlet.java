@@ -39,7 +39,14 @@ public class RegisterServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String dni = request.getParameter("dni");
 		String pass = request.getParameter("pass");
-		Cliente c = ClienteDAO.loginValid(dni, pass);
+		String surname = request.getParameter("surname");
+		String birthday = request.getParameter("birthday");
+		String sex = request.getParameter("sex");
+		String password = request.getParameter("password");
+		String address = request.getParameter("address"); 
+		String name = request.getParameter("name");
+		String phone = request.getParameter("phone");
+		Cliente c = ClienteDAO.regValid(dni,pass,surname,birthday,sex.charAt(0),password,address,name,phone);
 		if (c.isValid()) {
 			request.getRequestDispatcher("loginok.jsp").include(request,response);
 		} else {

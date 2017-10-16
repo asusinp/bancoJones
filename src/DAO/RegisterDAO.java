@@ -37,7 +37,7 @@ public class RegisterDAO {
 			stmt.setString(2, name);
 			stmt.setString(3, surname);
 			stmt.setString(4, birthday);
-			stmt.setCharacterStream(5, sex);
+			stmt.setString(5, String.valueOf(sex));
 			stmt.setString(6, address);
 			stmt.setString(7, phone);
 			stmt.setString(8, password);

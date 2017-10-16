@@ -2,11 +2,13 @@ package servlets;
 
 import java.io.IOException;
 
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import DAO.ClienteDAO;
 import beans.Cliente;
@@ -42,6 +44,8 @@ public class LoginServlet extends HttpServlet {
 		String pass = request.getParameter("pass");
 		Cliente c = ClienteDAO.loginValid(dni, pass);
 		if (c.isValid()) {
+			HttpSession session = request.getSession();
+			session.setAttribute("clientSession", c);			
 			request.getRequestDispatcher("loginok.jsp").include(request,response);
 		} else {
 			request.getRequestDispatcher("loginko.jsp").include(request,response);

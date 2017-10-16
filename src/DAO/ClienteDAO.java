@@ -74,7 +74,7 @@ public class ClienteDAO {
 	}
 	
 	//public static Cliente regValid(String dni, String pass, String surname, String birthday, char sex, String password, String address, String name, String phone) throws IOException {
-	public static Cliente regValid(String dni, String surname, String birthday, String sex, String password, String address, String name, String phone) throws IOException {
+	public static Cliente regValid(String dni, String surname, String birthday, String password, char sex, String address, String name, String phone) throws IOException {
 		Cliente c = new Cliente();
 
 		con = ConnectionManager.getConnection();

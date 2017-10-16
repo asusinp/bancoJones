@@ -42,7 +42,7 @@ public class RegisterServlet extends HttpServlet {
 		String surname = request.getParameter("surnameReg");
 		String birthday = request.getParameter("birthdayReg");
 		System.out.println(birthday);
-		String sex = request.getParameter("sexReg");
+		char sex = request.getParameter("sexReg").charAt(0);
 		String address = request.getParameter("addressReg"); 
 		String name = request.getParameter("nameReg");
 		String phone = request.getParameter("phoneReg");

@@ -73,12 +73,9 @@ public class ClienteDAO {
 		return c;
 	}
 	
-	//public static Cliente regValid(String dni, String pass, String surname, String birthday, char sex, String password, String address, String name, String phone) throws IOException {
-	public static Cliente regValid(String dni, String surname, String birthday, String password, char sex, String address, String name, String phone) throws IOException {
-		Cliente c = new Cliente();
-
+	public static boolean regValid(String dni, String surname, String birthday, String password, char sex, String address, String name, String phone) throws IOException {
+		boolean result = false;
 		con = ConnectionManager.getConnection();
-		ResultSet rs = null;
 		PreparedStatement stmt = null;
 		
 		try {
@@ -97,30 +94,10 @@ public class ClienteDAO {
 			stmt.setString(6, address);
 			stmt.setString(7, phone);
 			stmt.setString(8, password);
-			rs = (ResultSet) stmt.executeQuery();
-			if (rs.next()) {
-				c.setNombre(rs.getString(name));
-				c.setDni(rs.getString(dni));
-				c.setApellidos(rs.getString(surname));
-				c.setFechaNacimiento(rs.getString(birthday));
-				c.setSexo(rs.getString(sex));
-				c.setDireccion(rs.getString(address));
-				c.setTelefono(rs.getString(phone));
-				c.setContraseña(rs.getString(password));
-				c.setValid(true);
-			} else {
-				c.setValid(false);
-			}
-		} catch (SQLException e) {
+			stmt.execute(); 	
+		} catch (SQLException | IOException e) {
 			e.printStackTrace();
 		} finally {
-			if (rs != null) {
-				try {
-					rs.close();
-				} catch (Exception e) {	
-					e.printStackTrace();
-				}
-			}
 			if (stmt != null) {
 				try {
 					stmt.close();
@@ -131,6 +108,7 @@ public class ClienteDAO {
 			if (con != null) {
 				try {
 					con.close();
+					result = true;
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -138,7 +116,7 @@ public class ClienteDAO {
 		}
 
 		ConnectionManager.getConnection();
-		return c;
+		return result;
 	}
 
 }

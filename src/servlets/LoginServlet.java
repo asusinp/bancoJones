@@ -45,8 +45,10 @@ public class LoginServlet extends HttpServlet {
 		Cliente c = ClienteDAO.loginValid(dni, pass);
 		if (c.isValid()) {
 			HttpSession session = request.getSession();
-			session.setAttribute("clientSession", c);			
-			request.getRequestDispatcher("loginok.jsp").include(request,response);
+			session.setAttribute("clientSession", c);
+			String encodeURL = response.encodeRedirectURL("loginok.jsp");
+			response.sendRedirect(encodeURL);
+			//request.getRequestDispatcher("loginok.jsp").include(request,response);
 		} else {
 			request.getRequestDispatcher("loginko.jsp").include(request,response);
 		}

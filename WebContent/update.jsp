@@ -5,7 +5,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+	input {
+		margin-top:5px;
+	}
+</style>
 </head>
+<script type="text/javascript">
+function hideOrShowPassword(){ 
+    checkbox = document.getElementById("checkbox");
+    passField = document.getElementById("password");
+    if(checkbox.checked == true) {
+        passField.type = "text";
+    } else {
+        passField.type = "password"
+    }
+}
+</script>
 <body>
 	<%@ include file="menu.html"%>
 	<div>
@@ -14,7 +30,7 @@
 			Apellidos: <input type="text" placeholder="Introduce tus apellidos" name="surnameUpd"><br>
 			DNI: <input type="text" placeholder="Introduce tu DNI" name="dniUpd"><br>
 			Contraseña: <input type="text" id="password" placeholder="Introduce tu contraseña" name="passUpd"><br>
-			<!-- Mostrar contraseña:  --><!-- <input type="checkbox" id="checkbox" value="Car" onclick="hideOrShowPassword()"><br> -->
+			Mostrar contraseña: <input type="checkbox" id="checkbox" value="Car" onclick="hideOrShowPassword()"><br>
 			Fecha de nacimiento: <input type="text" placeholder="Introduce tu fecha de nacimiento" name="birthdayUpd"><br>
 			Sexo: <input type="text" placeholder="h = hombre, m = mujer" name="sexUpd"><br> 
 			Dirección: <input type="text" placeholder="Introduce tu dirección" name="addressUpd"><br>

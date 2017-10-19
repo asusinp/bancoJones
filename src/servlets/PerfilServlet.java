@@ -6,20 +6,19 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import DAO.ClienteDAO;
+import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class UpdateServlet
+ * Servlet implementation class PerfilServlet
  */
-@WebServlet("/UpdateServlet")
-public class UpdateServlet extends HttpServlet {
+@WebServlet("/PerfilServlet")
+public class PerfilServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateServlet() {
+    public PerfilServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,20 +35,9 @@ public class UpdateServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String dni = request.getParameter("dniUpd");
-		String pass = request.getParameter("passUpd");
-		String surname = request.getParameter("surnameUpd");
-		String birthday = request.getParameter("birthdayUpd");
-		char sex = request.getParameter("sexUpd").charAt(0);
-		String address = request.getParameter("addressUpd"); 
-		String name = request.getParameter("nameUpd");
-		String phone = request.getParameter("phoneUpd");
-		Cliente cliente = ClienteDAO.updateValid(dni, surname, birthday, pass, sex, address, name, phone);
-		if () {
-			request.getRequestDispatcher("update.jsp").include(request,response);
-		} else {
-			request.getRequestDispatcher("loginko.jsp").include(request,response);
-		}
+
+		String encodeURL = response.encodeRedirectURL("loginok.jsp");
+		response.sendRedirect(encodeURL);
 	}
 
 }

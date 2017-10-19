@@ -20,9 +20,11 @@ if (cookies != null) {
 			sessionID = cookie.getValue();
 		}
 	}
+} else {
+	sessionID = "No hay cookies";
 }
 %>
-<h3>hola <%=user %>, con dni <%=dni %></h3>
+<h3>hola <%=user %>, con dni <%=dni %> <%=sessionID %></h3>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -32,9 +34,13 @@ if (cookies != null) {
 <body>
 	
 	ok, eres un grande de la programacion
-	<form method="POST" action="LogoutServlet">
-		<input type="submit" value="cerrrar sesion">
+<form method="POST" action=<%=response.encodeURL("LogoutServlet")%>>
+		<input type="submit" value="cerrar sesion">
 	</form>
+	<form method="POST" action="<%=response.encodeURL("PerfilServlet")%>">
+		<input type="submit" value="Perfil">
+	</form>
+	
 	
 	
 </body>

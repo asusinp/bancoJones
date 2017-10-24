@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style>
-div {
+ .loser {
 	position: relative;
 	margin-top: 10px;
 }
@@ -18,10 +18,10 @@ input {
 </head>
 <body>
 	<%@ include file="menu.html"%>
-	<div>
+	<div class="loser">
 		<form action="LoginServlet" method="POST">
 			DNI: <input type="text" placeholder="Introduce tu DNI" name="dni"><br> 
-			Password: <input type="text" placeholder="Introduce tu contraseña" name="pass"><br> 
+			Password: <input type="password" placeholder="Introduce tu contraseña" name="pass"><br> 
 			<input type="submit" value="Validar">
 		</form>
 	</div>	

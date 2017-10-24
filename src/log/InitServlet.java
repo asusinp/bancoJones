@@ -1,4 +1,3 @@
-+
 package log;
 
 
@@ -9,7 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 
-import org.apache.logging.log4j.LogManager;
+//import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.core.LoggerContext;
 
 /**

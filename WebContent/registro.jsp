@@ -37,7 +37,7 @@ function hideOrShowPassword(){
 			Sexo: <input type="text" placeholder="h = hombre, m = mujer" name="sexReg"><br> 
 			Dirección: <input type="text" placeholder="Introduce tu dirección" name="addressReg"><br>
 			Telefono: <input type="text" placeholder="Introduce tu telefono" name="phoneReg"><br>			
-			<input type="submit" value="Registrarse">
+			<input type="submit" value="Registrarse">			
 		</form>
 	</div>
 </body>

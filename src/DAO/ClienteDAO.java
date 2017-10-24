@@ -95,7 +95,6 @@ public class ClienteDAO {
 			stmt.setString(7, phone);
 			stmt.setString(8, password);
 			stmt.execute();
-			
 		} catch (SQLException | IOException e) {
 			e.printStackTrace();
 		} finally {
@@ -125,8 +124,7 @@ public class ClienteDAO {
 		boolean result = false;
 		con = ConnectionManager.getConnection();
 		PreparedStatement stmt = null;
-		ResultSet rs = null;
-		
+		ResultSet rs = null;		
 		try {
 			Properties prop = new Properties();
 			InputStream input = ClienteDAO.class.getClassLoader().getResourceAsStream("sql.properties");			

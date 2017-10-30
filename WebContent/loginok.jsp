@@ -37,7 +37,7 @@ if (cookies != null) {
 <form method="POST" action=<%=response.encodeURL("LogoutServlet")%>>
 		<input type="submit" value="cerrar sesion">
 	</form>
-	<form method="POST" action="<%=response.encodeURL("PerfilServlet")%>">
+	<form method="POST" action="<%=response.encodeURL("UpdateServlet")%>">
 		<input type="submit" value="Perfil">
 	</form>
 	

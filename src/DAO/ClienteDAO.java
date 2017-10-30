@@ -119,7 +119,7 @@ public class ClienteDAO {
 		return result;
 	}
 	
-	public static Cliente updateValid(String dni, String surname, String birthday, String password, char sex, String address, String name, String phone) throws IOException {
+	public static boolean updateValid(String dni, String surname, String birthday, String password, String sex, String address, String name, String phone) throws IOException {
 		Cliente c = new Cliente();
 		boolean result = false;
 		con = ConnectionManager.getConnection();
@@ -137,7 +137,7 @@ public class ClienteDAO {
 			stmt.setString(1, name);
 			stmt.setString(2, surname);
 			stmt.setString(3, birthday);
-			stmt.setString(4, String.valueOf(sex));
+			stmt.setString(4, sex);
 			stmt.setString(5, address);
 			stmt.setString(6, phone);
 			stmt.setString(7, password);
@@ -148,7 +148,7 @@ public class ClienteDAO {
 				c.setDni(rs.getString(dni));
 				c.setApellidos(rs.getString(surname));
 				c.setFechaNacimiento(rs.getString(birthday));
-				c.setSexo(rs.getString(String.valueOf(sex)));
+				c.setSexo(rs.getString(sex));
 				c.setDireccion(rs.getString(address));
 				c.setTelefono(rs.getString(phone));
 				c.setContraseña(rs.getString(password));
@@ -177,7 +177,7 @@ public class ClienteDAO {
 		}
 
 		ConnectionManager.getConnection();
-		return c;
+		return result;
 	}
 
 }

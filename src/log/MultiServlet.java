@@ -1,4 +1,4 @@
-package servlets;
+package log;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,19 +7,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DAO.ClienteDAO;
-
 /**
- * Servlet implementation class UpdateServlet
+ * Servlet implementation class MultiServlet
  */
-@WebServlet("/UpdateServlet")
-public class UpdateServlet extends HttpServlet {
+@WebServlet("/MultiServlet")
+public class MultiServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateServlet() {
+    public MultiServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,7 +26,12 @@ public class UpdateServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	
+		request.getLocale();
+		response.setCharacterEncoding("UTF-8");
+		//request.getRequestDispatcher("index2.jsp").include(request, response);
+		
+		
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
@@ -36,20 +39,8 @@ public class UpdateServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String dni = request.getParameter("dniUpd");
-		String pass = request.getParameter("passUpd");
-		String surname = request.getParameter("surnameUpd");
-		String birthday = request.getParameter("birthdayUpd");
-		String sex = request.getParameter("sexUpd");
-		String address = request.getParameter("addressUpd"); 
-		String name = request.getParameter("nameUpd");
-		String phone = request.getParameter("phoneUpd");
-		boolean result = ClienteDAO.updateValid(dni, surname, birthday, pass, sex, address, name, phone);
-		if (result) {
-			request.getRequestDispatcher("update.jsp").include(request,response);
-		} else {
-			request.getRequestDispatcher("loginko.jsp").include(request,response);
-		}
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }

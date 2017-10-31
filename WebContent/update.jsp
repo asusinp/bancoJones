@@ -7,7 +7,7 @@ Cliente c = null;
 String name = null;
 String dni = null;
 String surname = null;
-String password = null;
+// String password = null;
 String sex = null;
 String address = null;
 String phone = null;
@@ -20,9 +20,10 @@ if (session.getAttribute("clientSession") == null) {
 	name = c.getNombre();
 	dni = c.getDni();
 	surname = c.getApellidos();
-	password = c.getContraseña();
+// 	password = c.getContraseña();
 	sex = c.getSexo();
 	address = c.getDireccion();
+	System.out.println(surname + " <<<< apellido");
 	phone = c.getTelefono();
 	birthday = c.getFechaNacimiento();
 }
@@ -47,26 +48,26 @@ if (cookies != null) {
 	}
 </style>
 </head>
-<script type="text/javascript">
-function hideOrShowPassword(){ 
-    checkbox = document.getElementById("checkbox");
-    passField = document.getElementById("password");
-    if(checkbox.checked == true) {
-        passField.type = "text";
-    } else {
-        passField.type = "password"
-    }
-}
-</script>
+<!-- <script type="text/javascript"> -->
+<!--  function hideOrShowPassword(){  -->
+<!--      checkbox = document.getElementById("checkbox"); -->
+<!--      passField = document.getElementById("password"); -->
+<!--      if(checkbox.checked == true) { -->
+<!--          passField.type = "text"; -->
+<!--      } else { -->
+<!--          passField.type = "password" -->
+<!--      } -->
+<!--  } -->
+<!-- </script> -->
 <body>
 	<%@ include file="menu.html"%>
 	<div>
 		<form action="UpdateServlet" method="POST">
-			Nombre: <input type="text" placeholder="Introduce tu nombre" name="nameUpd" value='<%=name%>' style="background-color: white;"><br>
-			Apellidos: <input type="text" placeholder="Introduce tus apellidos" name="surnameUpd" value='<%=surname%>'><br>
+			Nombre: <input type="text" placeholder="Introduce tu nombre" name="nameUpd" value='<%=name%>'><br>
+			Apellidos: <input type="text" placeholder="Introduce tus apellidos" name="surnameUpd" value='<%=c.getApellidos()%>'><br>
 			DNI: <input type="text" placeholder="Introduce tu DNI" name="dniUpd" value='<%= dni %>'><br>
-			Contraseña: <input type="text" id="password" placeholder="Introduce tu contraseña" name="passUpd" value='<%=password%>'><br>
-			Mostrar contraseña: <input type="checkbox" id="checkbox" value="Car" onclick="hideOrShowPassword()"><br>
+<%-- 			Contraseña: <input type="text" id="password" placeholder="Introduce tu contraseña" name="passUpd" value='<%=password%>'><br> --%>
+<!-- 			Mostrar contraseña: <input type="checkbox" id="checkbox" value="Car" onclick="hideOrShowPassword()"><br> -->
 			Fecha de nacimiento: <input type="text" placeholder="Introduce tu fecha de nacimiento" name="birthdayUpd" value='<%=birthday%>'><br>
 			Sexo: <input type="text" placeholder="h = hombre, m = mujer" name="sexUpd" value='<%=sex%>'><br>
 			Dirección: <input type="text" placeholder="Introduce tu dirección" name="addressUpd" value='<%=address%>'><br>

@@ -6,12 +6,14 @@ Cliente c = null;
 String user = null;
 String dni = null;
 String sessionID = null;
+//String address = null;
 if (session.getAttribute("clientSession") == null) {
 	response.sendRedirect("jones.jsp");
 } else {
 	c = (Cliente)session.getAttribute("clientSession");
 	user = c.getNombre();
 	dni = c.getDni();
+	//address = c.getDireccion();
 }
 Cookie[] cookies = request.getCookies();
 if (cookies != null) {

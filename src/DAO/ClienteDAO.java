@@ -19,7 +19,6 @@ public class ClienteDAO {
 
 	public static Cliente loginValid(String user, String pass) throws IOException {
 		Cliente c = new Cliente();
-
 		con = ConnectionManager.getConnection();
 		ResultSet rs = null;
 		PreparedStatement stmt = null;
@@ -37,8 +36,15 @@ public class ClienteDAO {
 			stmt.setString(2, user);
 			rs = (ResultSet) stmt.executeQuery();
 			if (rs.next()) {
+				//rs.getString, lo que hay dentro es el nombre del campo de la bbdd
 				c.setNombre(rs.getString("nombre"));
 				c.setDni(rs.getString("dni"));
+				c.setApellidos(rs.getString("apellidos"));
+				c.setFechaNacimiento(rs.getString("fecha_de_nacimiento"));
+				c.setSexo(rs.getString("sexo"));
+				c.setDireccion(rs.getString("direccion"));
+				c.setTelefono(rs.getString("telefono"));
+				c.setContraseña(rs.getString("contraseña"));
 				c.setValid(true);
 			} else {
 				c.setValid(false);
@@ -119,7 +125,8 @@ public class ClienteDAO {
 		return result;
 	}
 	
-	public static boolean updateValid(String dni, String surname, String birthday, String password, String sex, String address, String name, String phone) throws IOException {
+//	public static boolean updateValid(String dni, String surname, String birthday, String password, String sex, String address, String name, String phone) throws IOException {
+	public static boolean updateValid(String dni, String surname, String birthday, String sex, String address, String name, String phone) throws IOException {
 		Cliente c = new Cliente();
 		boolean result = false;
 		con = ConnectionManager.getConnection();
@@ -133,29 +140,17 @@ public class ClienteDAO {
 			}			
 			prop.load(input);
 			stmt = con.prepareStatement(prop.getProperty("cliente.update"));
-			stmt.setString(8, dni);
+//			stmt.setString(8, dni);
+			stmt.setString(7, dni);
 			stmt.setString(1, name);
 			stmt.setString(2, surname);
 			stmt.setString(3, birthday);
 			stmt.setString(4, sex);
 			stmt.setString(5, address);
 			stmt.setString(6, phone);
-			stmt.setString(7, password);
-			stmt.executeUpdate();
-			rs = (ResultSet) stmt.executeQuery();
-			if (rs.next()) {
-				c.setNombre(rs.getString(name));
-				c.setDni(rs.getString(dni));
-				c.setApellidos(rs.getString(surname));
-				c.setFechaNacimiento(rs.getString(birthday));
-				c.setSexo(rs.getString(sex));
-				c.setDireccion(rs.getString(address));
-				c.setTelefono(rs.getString(phone));
-				c.setContraseña(rs.getString(password));
-				c.setValid(true);
-			} else {
-				c.setValid(false);
-			}
+			//stmt.setString(7, password);
+			int n = stmt.executeUpdate();
+			System.out.println(n + " <<<<< update bbdd");
 		} catch (SQLException | IOException e) {
 			e.printStackTrace();
 		} finally {

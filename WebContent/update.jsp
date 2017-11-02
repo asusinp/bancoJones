@@ -27,7 +27,7 @@ if (session.getAttribute("clientSession") == null) {
 	phone = c.getTelefono();
 	birthday = c.getFechaNacimiento();
 }
-Cookie[] cookies = request.getCookies();
+/* Cookie[] cookies = request.getCookies();
 if (cookies != null) {
 	for (Cookie cookie : cookies) {
 		if (cookie.getName().equals("JSESSIONID") ) {
@@ -36,7 +36,7 @@ if (cookies != null) {
 	}
 } else {
 	sessionID = "No hay cookies";
-}
+} */
 %>
 <html>
 <head>

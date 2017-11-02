@@ -10,6 +10,8 @@ import java.sql.SQLException;
 
 import java.util.Properties;
 
+import javax.servlet.http.HttpSession;
+
 import bbdd.ConnectionManager;
 import beans.Cliente;
 
@@ -127,7 +129,6 @@ public class ClienteDAO {
 	
 //	public static boolean updateValid(String dni, String surname, String birthday, String password, String sex, String address, String name, String phone) throws IOException {
 	public static boolean updateValid(String dni, String surname, String birthday, String sex, String address, String name, String phone) throws IOException {
-		Cliente c = new Cliente();
 		boolean result = false;
 		con = ConnectionManager.getConnection();
 		PreparedStatement stmt = null;
@@ -173,6 +174,15 @@ public class ClienteDAO {
 
 		ConnectionManager.getConnection();
 		return result;
+	}
+	public static void refresh(String dni, String surname, String birthday, String sex, String address, String name, String phone, Cliente c) {
+		c.setNombre(name);
+		c.setDni(dni);
+		c.setApellidos(surname);
+		c.setFechaNacimiento(birthday);
+		c.setSexo(sex);
+		c.setDireccion(address);
+		c.setTelefono(phone);				
 	}
 
 }

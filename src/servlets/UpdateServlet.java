@@ -51,10 +51,11 @@ public class UpdateServlet extends HttpServlet {
 		boolean result = ClienteDAO.updateValid(dni, surname, birthday, sex, address, name, phone);
 //		boolean result = ClienteDAO.updateValid(dni, surname, birthday, pass, sex, address, name, phone);		
 		if (result) {
-//			HttpSession session = request.getSession();
-//			Cliente c = (Cliente)session.getAttribute("clientSession");
-//			c.setApellidos(surname);
-			request.getRequestDispatcher("update.jsp").include(request,response);							
+			Cliente c = (Cliente)request.getSession().getAttribute("clientSession");
+			System.out.println(c.toString());
+			ClienteDAO.refresh(dni, surname, birthday, sex, address, name, phone, c);
+			System.out.println(c.toString());
+			request.getRequestDispatcher("index.jsp").include(request,response);				
 		} else {
 			request.getRequestDispatcher("loginko.jsp").include(request,response);
 		}

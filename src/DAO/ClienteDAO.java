@@ -175,6 +175,7 @@ public class ClienteDAO {
 		ConnectionManager.getConnection();
 		return result;
 	}
+	
 	public static void refresh(String dni, String surname, String birthday, String sex, String address, String name, String phone, Cliente c) {
 		c.setNombre(name);
 		c.setDni(dni);

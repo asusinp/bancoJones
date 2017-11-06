@@ -1,5 +1,7 @@
 package beans;
 
+import java.util.LinkedList;
+import java.util.List;
 
 public class Cliente {
 	
@@ -11,6 +13,12 @@ public class Cliente {
 	private String sexo;
 	private String direccion;
 	private String telefono;
+	private boolean isValid;
+	private List<Account> accounts;
+	
+	public Cliente() {
+		accounts = new LinkedList<>();
+	}
 	
 	public String getApellidos() {
 		return apellidos;
@@ -48,8 +56,12 @@ public class Cliente {
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
-	private boolean isValid;
-	
+	public List<Account> getAccounts() {
+		return accounts;
+	}
+	public void setAccounts(List<Account> accounts) {
+		this.accounts = accounts;
+	}	
 	public boolean isValid() {
 		return isValid;
 	}

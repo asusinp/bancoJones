@@ -8,22 +8,16 @@ package beans;
  *
  */
 public class Account {
-	public String date;
+	public String iban;
 	public Cliente cliente;
+	public String propietario;
 	public double balance;
-	
-	public Account(String date, Cliente cliente, double balance) {
-		this.date = date;
-		this.cliente = cliente;
+
+	public Account(String iban, String propietario, double balance) {
+		super();
+		this.iban = iban;
+		this.propietario = propietario;
 		this.balance = balance;
-	}
-
-	public String getDate() {
-		return date;
-	}
-
-	public void setDate(String date) {
-		this.date = date;
 	}
 
 	public Cliente getCliente() {
@@ -44,10 +38,9 @@ public class Account {
 
 	@Override
 	public String toString() {
-		return "Account [date=" + date + ", cliente=" + cliente + ", balance=" + balance + "]";
+		return "Account [iban=" + iban + ", propietario=" + propietario + ", balance=" + balance + "]";
 	}
+
 	
-	
-	
-	
+
 }

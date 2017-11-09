@@ -48,6 +48,7 @@ public class ListAccountsServlet extends HttpServlet {
 		Cliente c = (Cliente) request.getSession().getAttribute("clientSession");
 		List<Account> list = AccountsDAO.getAccounts(c.getDni());
 		c.setAccounts(list);
+		request.getSession().setAttribute("list",list);
 		System.out.println(list);
 		if (!list.isEmpty()) {
 			String encodeURL = response.encodeRedirectURL("cuentas.jsp");

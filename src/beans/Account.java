@@ -24,6 +24,22 @@ public class Account {
 		return cliente;
 	}
 
+	public String getIban() {
+		return iban;
+	}
+
+	public String getPropietario() {
+		return propietario;
+	}
+
+	public void setIban(String iban) {
+		this.iban = iban;
+	}
+
+	public void setPropietario(String propietario) {
+		this.propietario = propietario;
+	}
+
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}

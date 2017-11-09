@@ -3,6 +3,8 @@
 <%@ page import="beans.Cliente"%>
 <%@ page import="beans.Account"%>
 <%@ page import="java.util.List"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%
 	Cliente c = null;
 	String sessionID = null;
@@ -32,33 +34,34 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<c:forEach items="${accounts}" var="item">
-    	document.write(item.)
-	</c:forEach>
-	<div class="container" id="accounts">
-		<h2>
-			Cuentas del usuario
-			<%=c.getNombre() %></h2>
-		<table class="table">
-			<thead>
-				<tr>
-					<th>IBAN</th>
-					<th>Saldo</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td><%=c.getAccounts().get(0).iban %></td>
-					<td><%=c.getAccounts().get(0).balance %></td>
-				</tr>
-			</tbody>
-			<tbody>
-				<tr>
-					<td><%=c.getAccounts().get(1).iban %></td>
-					<td><%=c.getAccounts().get(1).balance %></td>
-				</tr>
-			</tbody>
-		</table>
+<%-- <script type="text/javascript">
+	accounts = "<table class='table'><thead><tr><th>IBAN</th><th>Saldo</th></tr></thead>";
+	<%
+	String str = "";
+	String str2 = "";
+	for (Account account : accounts) {
+		str = account.getIban();
+		str2 = String.valueOf(account.getBalance());
+		%>
+		iban = <%=str %>;
+		 balance = <%=str2 %>;
+		accounts += "<tbody><tr><td>" + ${account.getIban()} + "</td><td>" + balance + "</td></tr></tbody>";
+		<%
+	}
+	%>
+	accounts += "</table>";
+	document.getElementById("accounts").innerHTML = accounts;
+</script> --%>
+		<h2> Cuentas del usuario <%=c.getNombre() %></h2>
+	
+	<div class="container" id="accounts">		
+	<table class='table'><thead><tr><th>IBAN</th><th>Saldo</th></tr></thead>
+	
+		<c:forEach items="${list}" var="account">
+	
+		<tbody><tr><td> ${account.getIban()} </td><td> ${account.getBalance() }</td></tr></tbody>
+		</c:forEach>
+	</table>
 	</div>
 </body>
 </html>

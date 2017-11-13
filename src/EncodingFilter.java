@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Servlet Filter implementation class EncodingFilter
@@ -38,6 +39,10 @@ public class EncodingFilter implements Filter {
 		// place your code here
 		// pass the request along the filter chain
 		response.setCharacterEncoding("UTF-8");
+		String path = ((HttpServletRequest)request).getRequestURI();
+		if (path.equalsIgnoreCase("bancoJones/cuentas.jsp")) {
+			request.getRequestDispatcher();
+		}
 		chain.doFilter(request, response);
 	}
 

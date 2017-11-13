@@ -33,8 +33,8 @@ public class ListAccountsServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		Cliente c = (Cliente) request.getSession().getAttribute("clientSession");
-		List<Account> list = AccountsDAO.getAccounts(c.getDni());
+//		Cliente c = (Cliente) request.getSession().getAttribute("clientSession");
+//		List<Account> list = AccountsDAO.getAccounts(c.getDni());
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
@@ -48,8 +48,8 @@ public class ListAccountsServlet extends HttpServlet {
 		Cliente c = (Cliente) request.getSession().getAttribute("clientSession");
 		List<Account> list = AccountsDAO.getAccounts(c.getDni());
 		c.setAccounts(list);
-		request.getSession().setAttribute("list",list);
-		System.out.println(list);
+//		request.getSession().setAttribute("list",list);
+//		System.out.println(list);
 		if (!list.isEmpty()) {
 			String encodeURL = response.encodeRedirectURL("cuentas.jsp");
 			response.sendRedirect(encodeURL);

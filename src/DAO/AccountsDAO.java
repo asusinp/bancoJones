@@ -73,11 +73,49 @@ public class AccountsDAO {
 
 	}
 
-	public boolean insertAccount(Account account) {
-		return true;
-	}
+	public static boolean insertAccount(Account account) {
+		boolean insert = false;
+		con = ConnectionManager.getConnection();
+		PreparedStatement stmt = null;
+		
+		try {
+			Properties prop = new Properties();
+			InputStream input = ClienteDAO.class.getClassLoader().getResourceAsStream("sql.properties");	
+			if (input == null) {
+				System.out.println("No se encontró el archivo");
+			}			
+			prop.load(input);
+			stmt = con.prepareStatement(prop.getProperty("accounts.cliente.reg"));
+			stmt.setString(1, account.getIban());
+			stmt.setDouble(2, account.getBalance());
+			stmt.setString(3, account.getCliente().getDni());
+			stmt.execute();
+			System.out.println(stmt.toString());
+		} catch (SQLException | IOException e) {
+			e.printStackTrace();
+		} finally {
+			if (stmt != null) {
+				try {
+					stmt.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+					insert = true;
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}
 
-	public boolean deleteAccount(Account account) {
+		ConnectionManager.getConnection();
+		return insert;
+	} 
+
+	public static boolean deleteAccount(Account account) {
 		return true;
 	}
 

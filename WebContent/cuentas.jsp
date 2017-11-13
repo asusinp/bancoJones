@@ -56,12 +56,20 @@
 	
 	<div class="container" id="accounts">		
 	<table class='table'><thead><tr><th>IBAN</th><th>Saldo</th></tr></thead>
-	
-		<c:forEach items="${list}" var="account">
-	
-		<tbody><tr><td> ${account.getIban()} </td><td> ${account.getBalance() }</td></tr></tbody>
-		</c:forEach>
+	<%
+		for (Account account : accounts) {
+			String iban = account.getIban();
+			double balance = account.getBalance();
+			%> <tbody><tr><td> <%=iban %> </td><td> <%=balance %></td></tr></tbody> <%
+		}
+	%>
+<%-- 		<c:forEach items="${list}" var="account">	
+			<tbody><tr><td> ${account.getIban()} </td><td> ${account.getBalance()}</td></tr></tbody>
+		</c:forEach> --%>
 	</table>
 	</div>
+	<form method="POST" action=<%=response.encodeURL("insertarCuenta.jsp")%>>
+		<input type="submit" value="Nueva cuenta">
+	</form>
 </body>
 </html>

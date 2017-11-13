@@ -19,6 +19,15 @@ public class Account {
 		this.propietario = propietario;
 		this.balance = balance;
 	}
+	
+	public Account(String iban, Cliente cliente, double balance) {
+		super();
+		this.iban = iban;
+		this.cliente = cliente;
+		this.balance = balance;
+	}
+
+
 
 	public Cliente getCliente() {
 		return cliente;

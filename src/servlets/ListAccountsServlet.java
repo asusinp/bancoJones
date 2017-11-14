@@ -35,7 +35,12 @@ public class ListAccountsServlet extends HttpServlet {
 			throws ServletException, IOException {
 //		Cliente c = (Cliente) request.getSession().getAttribute("clientSession");
 //		List<Account> list = AccountsDAO.getAccounts(c.getDni());
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		Cliente c = (Cliente) request.getSession().getAttribute("clientSession");
+		List<Account> list = AccountsDAO.getAccounts(c.getDni());
+		c.setAccounts(list);	
+		if (!list.isEmpty()) {
+			response.sendRedirect("cuentas.jsp");
+		}
 	}
 
 	/**
@@ -44,18 +49,7 @@ public class ListAccountsServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		Cliente c = (Cliente) request.getSession().getAttribute("clientSession");
-		List<Account> list = AccountsDAO.getAccounts(c.getDni());
-		c.setAccounts(list);
-//		request.getSession().setAttribute("list",list);
-//		System.out.println(list);
-		if (!list.isEmpty()) {
-			String encodeURL = response.encodeRedirectURL("cuentas.jsp");
-			response.sendRedirect(encodeURL);
-		}
-		doGet(request, response);
-		
+		doGet(request, response);		
 	}
 
 }

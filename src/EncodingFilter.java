@@ -41,7 +41,7 @@ public class EncodingFilter implements Filter {
 		response.setCharacterEncoding("UTF-8");
 		String path = ((HttpServletRequest)request).getRequestURI();
 		if (path.equalsIgnoreCase("bancoJones/cuentas.jsp")) {
-			request.getRequestDispatcher();
+			request.getRequestDispatcher("/ListAccountsServlet").include(request, response);
 		}
 		chain.doFilter(request, response);
 	}

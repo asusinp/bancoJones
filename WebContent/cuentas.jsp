@@ -68,7 +68,7 @@
 		</c:forEach> --%>
 	</table>
 	</div>
-	<form method="POST" action=<%=response.encodeURL("insertarCuenta.jsp")%>>
+	<form method="POST" action="insertarCuenta.jsp">
 		<input type="submit" value="Nueva cuenta">
 	</form>
 </body>

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Banco Jones - Insertar cuenta</title>
+<title>Banco Jones - Eliminar cuenta</title>
 <style type="text/css">
 	input {
 		margin-top:5px;
@@ -14,10 +14,8 @@
 <body>
 	<%@ include file="menu.html"%>
 	<div>
-		<form action="InsertAccountServlet" method="POST">
-			IBAN: <input type="text" name="ibanIns"><br>
-			Saldo: <input type="text" name="balanceIns"><br>
-			<input type="submit" value="Insertar nueva cuenta">
+		<form action="InsertAccountServlet" method="POST">			
+			<input type="submit" value="Eliminar">
 		</form>
 	</div>
 </body>

@@ -42,10 +42,9 @@ public class InsertAccountServlet extends HttpServlet {
 		double balance = Double.parseDouble(request.getParameter("balanceIns"));
 		Cliente c = (Cliente) request.getSession().getAttribute("clientSession");
 		Account account = new Account(iban, c, balance);
-		boolean result = AccountsDAO.insertAccount(account);
-		if (result) {
-			request.getRequestDispatcher("cuentas.jsp").include(request,response);
-		}
+		AccountsDAO.insertAccount(account);
+		//request.getRequestDispatcher("cuentas.jsp").include(request,response);
+		response.sendRedirect("ListAccountsServlet");		
 	}
 
 }

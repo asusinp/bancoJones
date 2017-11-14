@@ -113,10 +113,46 @@ public class AccountsDAO {
 
 		ConnectionManager.getConnection();
 		return insert;
-	} 
+	}
 
 	public static boolean deleteAccount(Account account) {
-		return true;
+		boolean delete = false;
+		con = ConnectionManager.getConnection();
+		PreparedStatement stmt = null;
+		
+		try {
+			Properties prop = new Properties();
+			InputStream input = ClienteDAO.class.getClassLoader().getResourceAsStream("sql.properties");	
+			if (input == null) {
+				System.out.println("No se encontró el archivo");
+			}
+			prop.load(input);
+			stmt = con.prepareStatement(prop.getProperty("accounts.cliente.del"));
+			stmt.setString(1, account.getIban());
+			stmt.execute();
+			System.out.println(stmt.toString());
+		} catch (SQLException | IOException e) {
+			e.printStackTrace();
+		} finally {
+			if (stmt != null) {
+				try {
+					stmt.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+					delete = true;
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+		ConnectionManager.getConnection();
+		return delete;
 	}
 
 }

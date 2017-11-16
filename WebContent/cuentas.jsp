@@ -55,12 +55,12 @@
 		<h2> Cuentas del usuario <%=c.getNombre() %></h2>
 	
 	<div class="container" id="accounts">		
-	<table class='table'><thead><tr><th>IBAN</th><th>Saldo</th></tr></thead>
+	<table class='table'><thead><tr><th>IBAN</th><th>Saldo</th><th></th></tr></thead>
 	<%
 		for (Account account : accounts) {
 			String iban = account.getIban();
 			double balance = account.getBalance();
-			%> <tbody><tr><td> <%=iban %> </td><td> <%=balance %></td></tr></tbody> <%
+			%> <tbody><tr><td> <%=iban %> </td><td> <%=balance %></td><td><button onclick="location.href='DeleteAccountsServlet?iban=<%=iban %>'">Eliminar</button><button onclick="location.href='DeleteAccountsServlet?iban=<%=iban %>'">Transacciones</button></td></tr></tbody> <%
 		}
 	%>
 <%-- 		<c:forEach items="${list}" var="account">	

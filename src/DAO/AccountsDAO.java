@@ -90,7 +90,6 @@ public class AccountsDAO {
 			stmt.setDouble(2, account.getBalance());
 			stmt.setString(3, account.getCliente().getDni());
 			stmt.execute();
-			System.out.println(stmt.toString());
 		} catch (SQLException | IOException e) {
 			e.printStackTrace();
 		} finally {
@@ -115,7 +114,7 @@ public class AccountsDAO {
 		return insert;
 	}
 
-	public static boolean deleteAccount(Account account) {
+	public static boolean deleteAccount(String iban) {
 		boolean delete = false;
 		con = ConnectionManager.getConnection();
 		PreparedStatement stmt = null;
@@ -128,7 +127,7 @@ public class AccountsDAO {
 			}
 			prop.load(input);
 			stmt = con.prepareStatement(prop.getProperty("accounts.cliente.del"));
-			stmt.setString(1, account.getIban());
+			stmt.setString(1, iban);
 			stmt.execute();
 			System.out.println(stmt.toString());
 		} catch (SQLException | IOException e) {

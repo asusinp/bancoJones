@@ -52,8 +52,8 @@
 	accounts += "</table>";
 	document.getElementById("accounts").innerHTML = accounts;
 </script> --%>
-		<h2> Cuentas del usuario <%=c.getNombre() %></h2>
-	
+	<h2> Cuentas del usuario <%=c.getNombre() %></h2>
+
 	<div class="container" id="accounts">		
 	<table class='table'><thead><tr><th>IBAN</th><th>Saldo</th><th></th><th></th></tr></thead>
 	<%

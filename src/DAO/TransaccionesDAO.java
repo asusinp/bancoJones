@@ -29,7 +29,7 @@ public class TransaccionesDAO {
 		return true;
 	}
 	
-	public List<Transaccion> listaTransacciones(String iban) throws IOException {
+	public static List<Transaccion> listaTransacciones(String iban) throws IOException {
 		List<Transaccion> transactionsList = new LinkedList<>();		
 		con = ConnectionManager.getConnection();
 		ResultSet rs = null;
@@ -44,10 +44,11 @@ public class TransaccionesDAO {
 			prop.load(input);
 			stmt = con.prepareStatement(prop.getProperty("transactions"));
 			stmt.setString(1, iban);
-			rs = (ResultSet) stmt.executeQuery();
-			while (rs.next()) {
-				Transaccion tr = new Transaccion(Integer.parseInt(rs.getString("id")), rs.getString("fecha"), Double.parseDouble(rs.getString("cantidad")), rs.getString("origen"), rs.getString("destino"));
-				transactionsList.add(tr);
+			rs = (ResultSet) stmt.executeQuery();			
+			while (rs.next()) {				
+				Transaccion tr = new Transaccion(Long.parseLong(rs.getString("id")), rs.getString("fecha"), Double.parseDouble(rs.getString("cantidad")), rs.getString("origen"), rs.getString("destino"));
+				System.out.println(tr);
+				transactionsList.add(tr);				
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -73,7 +74,8 @@ public class TransaccionesDAO {
 					e.printStackTrace();
 				}
 			}
-		}		
+		}
+		System.out.println(transactionsList);
 		return transactionsList;
 	}
 }

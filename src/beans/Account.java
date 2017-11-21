@@ -3,6 +3,8 @@
  */
 package beans;
 
+import java.util.List;
+
 /**
  * @author iaw21752927
  *
@@ -12,6 +14,7 @@ public class Account {
 	public Cliente cliente;
 	public String propietario;
 	public double balance;
+	public List<Transaccion> transactions;
 
 	public Account(String iban, String propietario, double balance) {
 		super();
@@ -24,7 +27,15 @@ public class Account {
 		super();
 		this.iban = iban;
 		this.cliente = cliente;
+		this.balance = balance;		
+	}
+	
+	public Account(String iban, Cliente cliente, double balance, List<Transaccion> list) {
+		super();
+		this.iban = iban;
+		this.cliente = cliente;
 		this.balance = balance;
+		this.transactions = list;
 	}
 
 
@@ -61,9 +72,18 @@ public class Account {
 		this.balance = balance;
 	}
 
+	
 	@Override
 	public String toString() {
 		return "Account [iban=" + iban + ", propietario=" + propietario + ", balance=" + balance + "]";
+	}
+
+	public List<Transaccion> getTransactions() {
+		return transactions;
+	}
+
+	public void setTransactions(List<Transaccion> transactions) {
+		this.transactions = transactions;
 	}
 
 	

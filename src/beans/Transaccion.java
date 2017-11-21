@@ -2,14 +2,14 @@ package beans;
 
 public class Transaccion {
 	
-	private int id;
+	private long id;
 	private String date;
 	private double amount;
 	private String origin;
 	private String destination;
 	
 	
-	public Transaccion(int id, String date, double amount, String origin, String destination) {
+	public Transaccion(long id, String date, double amount, String origin, String destination) {
 		super();
 		this.id = id;
 		this.date = date;
@@ -19,7 +19,7 @@ public class Transaccion {
 	}
 
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
@@ -44,7 +44,7 @@ public class Transaccion {
 	}
 
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 

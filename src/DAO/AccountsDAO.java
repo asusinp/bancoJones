@@ -68,7 +68,6 @@ public class AccountsDAO {
 				}
 			}
 		}
-		System.out.println(accountsList);
 		return accountsList;
 
 	}

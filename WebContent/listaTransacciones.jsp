@@ -34,5 +34,8 @@
 	%>
 	</table>
 	</div>
+	<form method="POST" action="insertarTransaccion.jsp">
+		<input type="submit" value="Nueva transacción">
+	</form>
 </body>
 </html>

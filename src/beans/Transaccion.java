@@ -9,8 +9,7 @@ public class Transaccion {
 	private String destination;
 	
 	
-	public Transaccion(long id, String date, double amount, String origin, String destination) {
-		super();
+	public Transaccion(long id, String date, double amount, String origin, String destination) {		
 		this.id = id;
 		this.date = date;
 		this.amount = amount;

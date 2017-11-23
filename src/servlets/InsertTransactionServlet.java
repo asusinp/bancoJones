@@ -7,17 +7,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import DAO.AccountsDAO;
+import DAO.TransaccionesDAO;
+import beans.Account;
+import beans.Cliente;
+import beans.Transaccion;
+
 /**
- * Servlet implementation class ListTransactionsServlet
+ * Servlet implementation class InsertTransactionServlet
  */
-@WebServlet("/ListTransactionsServlet")
-public class ListTransactionsServlet extends HttpServlet {
+@WebServlet("/InsertTransactionServlet")
+public class InsertTransactionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ListTransactionsServlet() {
+    public InsertTransactionServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,8 +40,12 @@ public class ListTransactionsServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		String ibanOrigen = request.getParameter("ibanOrig");
+		String ibanDestino = request.getParameter("ibanDest");
+		double cantidad = Double.parseDouble(request.getParameter("cantidad"));
+		TransaccionesDAO.realizaTransaccion(ibanOrigen, ibanDestino, cantidad);
+		//request.getRequestDispatcher("AccountDetailsServlet").forward(request, response); grande ricard
+		response.sendRedirect("listaTransacciones.jsp?account=" + ibanOrigen);
 	}
 
 }

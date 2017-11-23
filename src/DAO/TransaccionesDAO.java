@@ -25,8 +25,45 @@ public class TransaccionesDAO {
 	
 	static Connection con = null;
 	
-	public boolean realizaTransaccion(String origen, String destino) {
-		return true;
+	public static boolean realizaTransaccion(String origen, String destino, double cantidad) {
+		boolean insert = false;
+		con = ConnectionManager.getConnection();
+		PreparedStatement stmt = null;
+		
+		try {
+			Properties prop = new Properties();
+			InputStream input = ClienteDAO.class.getClassLoader().getResourceAsStream("sql.properties");
+			if (input == null) {
+				System.out.println("No se encontró el archivo");
+			}			
+			prop.load(input);
+			stmt = con.prepareStatement(prop.getProperty("transactions.ins"));
+			stmt.setDouble(1, cantidad);
+			stmt.setString(2, origen);
+			stmt.setString(3, destino);
+			stmt.execute();
+		} catch (SQLException | IOException e) {
+			e.printStackTrace();
+		} finally {
+			if (stmt != null) {
+				try {
+					stmt.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+					insert = true;
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+		ConnectionManager.getConnection();
+		return insert;
 	}
 	
 	public static List<Transaccion> listaTransacciones(String iban) throws IOException {

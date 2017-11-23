@@ -19,10 +19,4 @@
     <servlet-name>registro</servlet-name>
     <url-pattern>/registro</url-pattern>
   </servlet-mapping>
-  <!-- <servlet>
-  	<servlet-name>LogServlet</servlet-name>
-  	<servlet-class>LogServlet</servlet-class>
-  	<async-supported>true</async-supported>
-  	<load-on-startup></load-on-startup>  	
-  </servlet> -->
 </web-app>

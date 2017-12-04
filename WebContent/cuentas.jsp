@@ -60,14 +60,15 @@
 		for (Account account : accounts) {
 			String iban = account.getIban();
 			double balance = account.getBalance();
-			%> <tbody><tr><td> <%=iban %> </td><td> <%=balance %></td><td><button onclick="location.href='DeleteAccountsServlet?iban=<%=iban %>'">Eliminar</button><button onclick="location.href='AccountDetailsServlet?ibanTrans=<%=iban %>'">Transacciones</button></td></tr></tbody> <%
-		}
+			%> <tbody><tr><td> <%=iban %> </td><td> <%=balance %></td><td><button onclick="location.href='ControllerServlet?iban=<%=iban %>&action=deleteAccount'">Eliminar</button><button onclick="location.href='ControllerServlet?iban=<%=iban %>&action=detailsAccount'">Transacciones</button></td></tr></tbody> <%
+		} 
 	%>
 <%-- 		<c:forEach items="${list}" var="account">	
 			<tbody><tr><td> ${account.getIban()} </td><td> ${account.getBalance()}</td></tr></tbody>
 		</c:forEach> --%>
 	</table>
 	</div>
+	<%-- onclick="location.href='DeleteAccountsServlet?iban=<%=iban %>'" --%>
 	<form method="POST" action="insertarCuenta.jsp">
 		<input type="submit" value="Nueva cuenta">
 	</form>

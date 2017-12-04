@@ -19,4 +19,6 @@
     <servlet-name>registro</servlet-name>
     <url-pattern>/registro</url-pattern>
   </servlet-mapping>
+  
+
 </web-app>

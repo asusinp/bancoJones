@@ -45,7 +45,18 @@ if (cookies != null) {
 <body>
 	<%@ include file="menu.html"%>
 	<div>
-		<form action="UpdateServlet" method="POST">
+<%-- 		<form action="UpdateServlet" method="POST">
+			Nombre: <input type="text" placeholder="Introduce tu nombre" name="nameUpd" value='<%=c.getNombre()%>'><br>
+			Apellidos: <input type="text" placeholder="Introduce tus apellidos" name="surnameUpd" value='<%=c.getApellidos()%>'><br>
+			DNI: <input type="text" placeholder="Introduce tu DNI" name="dniUpd" value='<%=c.getDni() %>'><br>
+			Fecha de nacimiento: <input type="text" placeholder="Introduce tu fecha de nacimiento" name="birthdayUpd" value='<%=c.getFechaNacimiento()%>'><br>
+			Sexo: <input type="text" placeholder="h = hombre, m = mujer" name="sexUpd" value='<%=c.getSexo()%>'><br>
+			Dirección: <input type="text" placeholder="Introduce tu dirección" name="addressUpd" value='<%=c.getDireccion()%>'><br>
+			Telefono: <input type="text" placeholder="Introduce tu telefono" name="phoneUpd" value='<%=c.getTelefono()%>'><br>
+			<input type="submit" value="Modificar datos">
+		</form> --%>
+		<form action="ControllerServlet" method="POST">
+		<input type="hidden" name="action" value="update">
 			Nombre: <input type="text" placeholder="Introduce tu nombre" name="nameUpd" value='<%=c.getNombre()%>'><br>
 			Apellidos: <input type="text" placeholder="Introduce tus apellidos" name="surnameUpd" value='<%=c.getApellidos()%>'><br>
 			DNI: <input type="text" placeholder="Introduce tu DNI" name="dniUpd" value='<%=c.getDni() %>'><br>

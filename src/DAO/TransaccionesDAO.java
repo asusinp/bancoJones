@@ -29,6 +29,7 @@ public class TransaccionesDAO {
 		boolean insert = false;
 		con = ConnectionManager.getConnection();
 		PreparedStatement stmt = null;
+		PreparedStatement stmt2 = null;
 		
 		try {
 			Properties prop = new Properties();
@@ -38,10 +39,14 @@ public class TransaccionesDAO {
 			}			
 			prop.load(input);
 			stmt = con.prepareStatement(prop.getProperty("transactions.ins"));
+			stmt2 = con.prepareStatement(prop.getProperty("transactions.updateValue"));
 			stmt.setDouble(1, cantidad);
 			stmt.setString(2, origen);
 			stmt.setString(3, destino);
+			stmt2.setDouble(1, cantidad);
+			stmt2.setString(2, origen);
 			stmt.execute();
+			stmt2.execute();
 		} catch (SQLException | IOException e) {
 			e.printStackTrace();
 		} finally {

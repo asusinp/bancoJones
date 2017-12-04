@@ -10,8 +10,7 @@
 <%
 	String iban = (String) request.getParameter("account");
 	System.out.println(iban);
-	List<Transaccion> listTransactions = TransaccionesDAO.listaTransacciones(iban);
-	//System.out.println(listTransactions);
+	List<Transaccion> listTransactions = TransaccionesDAO.listaTransacciones(iban);	
 %>
 <html>
 <head>

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class LogServlet
  */
-@WebServlet(name="LogServlet", urlPatterms="/LogServlet", asyncSupported = true)
+@WebServlet(name="LogServlet", urlPatterns="/LogServlet", asyncSupported = true)
 public class LogServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

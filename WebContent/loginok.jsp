@@ -40,17 +40,17 @@
 <body>
 
 	ok, eres un grande de la programacion
-	<form method="POST" action=<%=response.encodeURL("LogoutServlet")%>>
+	<%-- <form method="POST" action=<%=response.encodeURL("LogoutServlet")%>> --%>
+	<form method="POST" action="LogoutServlet">
+		<input type="hidden" name="action" value="logout">
 		<input type="submit" value="cerrar sesion">
 	</form>
-	<form method="POST" action="<%=response.encodeURL("UpdateServlet")%>">
+	<form method="POST" action="update.jsp">
 		<input type="submit" value="Perfil">
 	</form>
-		<form method="POST" action="<%=response.encodeURL("ListAccountsServlet")%>">
+	<form method="POST" action="ControllerServlet">
+		<input type="hidden" name="action" value="listAccounts">
 		<input type="submit" value="Cuentas del usuario">
 	</form>
-
-
-
 </body>
 </html>

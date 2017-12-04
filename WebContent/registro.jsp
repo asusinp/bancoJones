@@ -27,7 +27,20 @@ function hideOrShowPassword(){
 
 	<%@ include file="menu.html"%>
 	<div>
-		<form action="RegisterServlet" method="POST">
+<!-- 		<form action="RegisterServlet" method="POST">
+			Nombre: <input type="text" placeholder="Introduce tu nombre" name="nameReg"><br>
+			Apellidos: <input type="text" placeholder="Introduce tus apellidos" name="surnameReg"><br>
+			DNI: <input type="text" placeholder="Introduce tu DNI" name="dniReg"><br>
+			Contraseña: <input type="text" id="password" placeholder="Introduce tu contraseña" name="passReg"><br>
+			Mostrar contraseña: <input type="checkbox" id="checkbox" value="Car" onclick="hideOrShowPassword()"><br>
+			Fecha de nacimiento: <input type="text" placeholder="Introduce tu fecha de nacimiento" name="birthdayReg"><br>
+			Sexo: <input type="text" placeholder="h = hombre, m = mujer" name="sexReg"><br> 
+			Dirección: <input type="text" placeholder="Introduce tu dirección" name="addressReg"><br>
+			Telefono: <input type="text" placeholder="Introduce tu telefono" name="phoneReg"><br>			
+			<input type="submit" value="Registrarse">			
+		</form> -->
+		<form action="ControllerServlet" method="POST">
+			<input type="hidden" name="action" value="register">
 			Nombre: <input type="text" placeholder="Introduce tu nombre" name="nameReg"><br>
 			Apellidos: <input type="text" placeholder="Introduce tus apellidos" name="surnameReg"><br>
 			DNI: <input type="text" placeholder="Introduce tu DNI" name="dniReg"><br>

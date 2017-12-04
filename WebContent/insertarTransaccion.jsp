@@ -14,7 +14,14 @@
 <body>
 	<%@ include file="menu.html"%>
 	<div>
-		<form action="InsertTransactionServlet" method="POST">
+<!-- 		<form action="InsertTransactionServlet" method="POST">
+			Origen: <input type="text" name="ibanOrig"><br>
+			Destino: <input type="text" name="ibanDest"><br>
+			Cantidad: <input type="text" name="cantidad"><br>
+			<input type="submit" value="Insertar nueva transacción">
+		</form> -->
+		<form action="ControllerServlet" method="POST">
+			<input type="hidden" name="action" value="insertTransaction">
 			Origen: <input type="text" name="ibanOrig"><br>
 			Destino: <input type="text" name="ibanDest"><br>
 			Cantidad: <input type="text" name="cantidad"><br>

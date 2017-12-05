@@ -34,24 +34,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%-- <script type="text/javascript">
-	accounts = "<table class='table'><thead><tr><th>IBAN</th><th>Saldo</th></tr></thead>";
-	<%
-	String str = "";
-	String str2 = "";
-	for (Account account : accounts) {
-		str = account.getIban();
-		str2 = String.valueOf(account.getBalance());
-		%>
-		iban = <%=str %>;
-		 balance = <%=str2 %>;
-		accounts += "<tbody><tr><td>" + ${account.getIban()} + "</td><td>" + balance + "</td></tr></tbody>";
-		<%
-	}
-	%>
-	accounts += "</table>";
-	document.getElementById("accounts").innerHTML = accounts;
-</script> --%>
 	<h2> Cuentas del usuario <%=c.getNombre() %></h2>
 
 	<div class="container" id="accounts">		
@@ -60,7 +42,7 @@
 		for (Account account : accounts) {
 			String iban = account.getIban();
 			double balance = account.getBalance();
-			%> <tbody><tr><td> <%=iban %> </td><td> <%=balance %></td><td><button onclick="location.href='ControllerServlet?iban=<%=iban %>&action=deleteAccount'">Eliminar</button><button onclick="location.href='ControllerServlet?iban=<%=iban %>&action=detailsAccount'">Transacciones</button></td></tr></tbody> <%
+			%> <tbody><tr><td> <%=iban %> </td><td> <%=balance %></td><td><button onclick="location.href='ControllerServlet?iban=<%=iban %>&action=deleteAccount'">Eliminar</button><button onclick="location.href='ControllerServlet?ibanTrans=<%=iban %>&action=detailsAccount'">Transacciones</button></td></tr></tbody> <%
 		} 
 	%>
 <%-- 		<c:forEach items="${list}" var="account">	

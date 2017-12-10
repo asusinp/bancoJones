@@ -27,8 +27,7 @@ public class AccountDetailsServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String iban = (String) request.getParameter("ibanTrans");
-		System.out.println(iban);
-		response.sendRedirect("listaTransacciones.jsp?account=" + iban + "&page=1");
+		response.sendRedirect("listaTransacciones.jsp?account=" + iban + "&page=1&size=10");
 		
 	}
 

@@ -45,7 +45,7 @@ public class InsertTransactionServlet extends HttpServlet {
 		double cantidad = Double.parseDouble(request.getParameter("cantidad"));
 		TransaccionesDAO.realizaTransaccion(ibanOrigen, ibanDestino, cantidad);
 		//request.getRequestDispatcher("AccountDetailsServlet").forward(request, response); grande ricard
-		response.sendRedirect("listaTransacciones.jsp?account=" + ibanOrigen);
+		response.sendRedirect("listaTransacciones.jsp?account=" + ibanOrigen + "&page=1&size=10");
 	}
 
 }

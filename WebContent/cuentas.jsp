@@ -42,7 +42,7 @@
 		for (Account account : accounts) {
 			String iban = account.getIban();
 			double balance = account.getBalance();
-			%> <tbody><tr><td> <%=iban %> </td><td> <%=balance %></td><td><button onclick="location.href='ControllerServlet?iban=<%=iban %>&action=deleteAccount'">Eliminar</button><button onclick="location.href='ControllerServlet?ibanTrans=<%=iban %>&action=detailsAccount'">Transacciones</button></td></tr></tbody> <%
+			%> <tbody><tr><td> <%=iban %> </td><td> <%=balance %></td><td><button onclick="location.href='ControllerServlet?iban=<%=iban %>&action=deleteAccount'">Eliminar</button><button onclick="location.href='ControllerServlet?ibanTrans=<%=iban %>&page=1&size=10&action=detailsAccount'">Transacciones</button></td></tr></tbody> <%
 		} 
 	%>
 <%-- 		<c:forEach items="${list}" var="account">	

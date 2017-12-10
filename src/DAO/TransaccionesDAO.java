@@ -89,7 +89,6 @@ public class TransaccionesDAO {
 			rs = (ResultSet) stmt.executeQuery();			
 			while (rs.next()) {				
 				Transaccion tr = new Transaccion(Long.parseLong(rs.getString("id")), rs.getString("fecha"), Double.parseDouble(rs.getString("cantidad")), rs.getString("origen"), rs.getString("destino"));
-				System.out.println(tr);
 				transactionsList.add(tr);				
 			}
 		} catch (SQLException e) {
@@ -116,8 +115,7 @@ public class TransaccionesDAO {
 					e.printStackTrace();
 				}
 			}
-		}
-		System.out.println(transactionsList);
+		}		
 		return transactionsList;
 	}
 }

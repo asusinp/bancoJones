@@ -13,7 +13,8 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="/home/users/inf/wiaw2/iaw21752927/projects/eclipse/bancoJones/WebContent/WEB-INF/lib/log4j-1.2-api-2.9.1.jar"/>
-	<classpathentry kind="lib" path="/home/users/inf/wiaw2/iaw21752927/projects/eclipse/bancoJones/WebContent/WEB-INF/lib/log4j-core-2.9.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Alex/Documents/log4j-api-2.9.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Alex/Documents/log4j-core-2.9.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Alex/Documents/gson-2.6.2.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

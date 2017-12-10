@@ -46,7 +46,7 @@ public class ClienteDAO {
 				c.setSexo(rs.getString("sexo"));
 				c.setDireccion(rs.getString("direccion"));
 				c.setTelefono(rs.getString("telefono"));
-				c.setContraseÃ±a(rs.getString("contraseÃ±a"));
+				c.setContraseña(rs.getString("contraseña"));
 				c.setValid(true);
 			} else {
 				c.setValid(false);
@@ -141,7 +141,7 @@ public class ClienteDAO {
 			}			
 			prop.load(input);
 			stmt = con.prepareStatement(prop.getProperty("cliente.update"));
-//			stmt.setString(8, dni);
+			//stmt.setString(8, dni);
 			stmt.setString(7, dni);
 			stmt.setString(1, name);
 			stmt.setString(2, surname);

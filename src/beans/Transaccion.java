@@ -66,6 +66,14 @@ public class Transaccion {
 	public void setDestination(String destination) {
 		this.destination = destination;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Transaccion [id=" + id + ", date=" + date + ", amount=" + amount + ", origin=" + origin
+				+ ", destination=" + destination + "]";
+	}
+	
 	
 	
 	

@@ -9,18 +9,8 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  <servlet>
-    <description></description>
-    <display-name>registro</display-name>
-    <servlet-name>registro</servlet-name>
-    <jsp-file>/registro.jsp</jsp-file>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>registro</servlet-name>
-    <url-pattern>/registro</url-pattern>
-  </servlet-mapping>
   <error-page>
-  	<error-code>404</error-code>
-  	<location>/error.html</location>
+    <error-code>404</error-code>
+    <location>/error.jsp</location>
   </error-page>
 </web-app>

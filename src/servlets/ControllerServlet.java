@@ -39,6 +39,12 @@ public class ControllerServlet extends HttpServlet {
 			} catch (Exception e) {
 				request.getRequestDispatcher("error.jsp").include(request, response);
 			}
+		case "json":
+			try {
+				request.getRequestDispatcher("/JsonDownloadServlet").forward(request, response);
+			} catch (Exception e) {
+				request.getRequestDispatcher("error.jsp").include(request, response);
+			}
 		default:
 			break;
 		}

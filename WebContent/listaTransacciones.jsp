@@ -12,8 +12,7 @@
 	List<Transaccion> listTransactions = TransaccionesDAO.listaTransacciones(iban);
 	System.out.println(listTransactions.size());
 	String spageid = request.getParameter("page") == null ? "1" : request.getParameter("page");
-	int size = Integer.parseInt(request.getParameter("size"));
-	//int size = 10;
+	int size = Integer.parseInt(request.getParameter("size"));	
 	int pagina = Integer.parseInt(spageid);
 	int ini = pagina == 1 ? pagina - 1 : (pagina - 1) * size;	
 	int fin = pagina * size;
@@ -28,8 +27,7 @@
 		} else {
 			sublist = listTransactions.subList(ini, listTransactions.size());
 		}
-	}
-	System.out.printf("size %d", size);
+	}	
 %>
 <html>
 <head>
@@ -47,7 +45,7 @@
 	<div>		
 	<table><thead><tr><th>ID</th><th>Fecha</th><th>Cantidad</th><th>Origen</th><th>Destino</th></tr></thead>
 	<%
-		if (!sublist.isEmpty()) {			
+		if (sublist != null && !sublist.isEmpty()) {		
 			for (Transaccion t : sublist) {
 				long id = t.getId();
 				String date = t.getDate();

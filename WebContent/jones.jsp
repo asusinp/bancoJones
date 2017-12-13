@@ -27,7 +27,7 @@ input {
  		<form action="ControllerServlet" method="POST">
 			<input type="hidden" name="action" value="login">
 			DNI: <input type="text" placeholder="Introduce tu DNI" name="dni"><br> 
-			Password: <input type="password" placeholder="Introduce tu contraseña" name="pass"><br> 
+			Password: <input type="password" placeholder="Introduce tu contraseña" name="pass"><br>
 			<input type="submit" value="Validar">
 		</form>
 	</div>	

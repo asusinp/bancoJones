@@ -46,7 +46,7 @@ public class ClienteDAO {
 				c.setSexo(rs.getString("sexo"));
 				c.setDireccion(rs.getString("direccion"));
 				c.setTelefono(rs.getString("telefono"));
-				c.setContraseña(rs.getString("contraseña"));
+				c.setPassword(rs.getString("contraseÃ±a"));
 				c.setValid(true);
 			} else {
 				c.setValid(false);

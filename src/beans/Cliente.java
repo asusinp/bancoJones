@@ -8,7 +8,7 @@ public class Cliente {
 	private String nombre;
 	private String dni;
 	private String apellidos;
-	private String contraseña;
+	private String password;
 	private String fechaNacimiento;
 	private String sexo;
 	private String direccion;
@@ -26,11 +26,11 @@ public class Cliente {
 	public void setApellidos(String apellidos) {
 		this.apellidos = apellidos;
 	}
-	public String getContraseña() {
-		return contraseña;
+	public String getPassword() {
+		return password;
 	}
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	public String getFechaNacimiento() {
 		return fechaNacimiento;
@@ -82,7 +82,7 @@ public class Cliente {
 	}
 	@Override
 	public String toString() {
-		return "Cliente [nombre=" + nombre + ", dni=" + dni + ", apellidos=" + apellidos + ", contraseÃ±a=" + contraseña
+		return "Cliente [nombre=" + nombre + ", dni=" + dni + ", apellidos=" + apellidos + ", contraseÃ±a=" + password
 				+ ", fechaNacimiento=" + fechaNacimiento + ", sexo=" + sexo + ", direccion=" + direccion + ", telefono="
 				+ telefono + ", isValid=" + isValid + "]";
 	}
